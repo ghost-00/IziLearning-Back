@@ -1,0 +1,11 @@
+INSERT INTO users (firstname, lastname, username, email, password) VALUES ('John', 'Doe', 'john.doe', 'john.doe@example.com', '$2b$12$wGltrms7zoY3nrxrXxPF4OTLp9PknYrLlJSZxFAHkkfmU4cnhojyC');
+INSERT INTO users (firstname, lastname, username, email, password) VALUES ('Jane', 'Doe', 'jane.doe', 'jane.doe@example.com', '$2b$12$wGltrms7zoY3nrxrXxPF4OTLp9PknYrLlJSZxFAHkkfmU4cnhojyC');
+INSERT INTO roles (name) VALUES ('ADMIN');
+INSERT INTO roles (name) VALUES ('STAFF');
+INSERT INTO users_roles (user_entity_id, roles_id) VALUES(1, 1);
+INSERT INTO questions (hint, question_text) VALUES('hint test1', 'question test1?');
+INSERT INTO questions (hint, question_text) VALUES('hint test2', 'question test2?');
+INSERT INTO choices (is_answer, `text`) VALUES(true, 'choice1');
+INSERT INTO choices (is_answer, `text`) VALUES(false, 'choice2');
+INSERT INTO questions_choices (questions_id, choices_id) VALUES(1, 1);
+INSERT INTO questions_choices (questions_id, choices_id) VALUES(1, 2);
