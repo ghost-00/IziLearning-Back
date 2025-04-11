@@ -35,8 +35,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())  // New way to disable CSRF
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))  // Disable sessions for APIs
             .authorizeHttpRequests(auth -> auth
-              .requestMatchers("/api/auth/**", "/api/questions", "api/user/**").permitAll()  // Public endpoints
-              .requestMatchers("/api/admin/**").hasRole("ADMIN")  // Restrict admin routes
+              .requestMatchers("/actuator/**","/api/auth/**", "/api/questions", "/api/users/me").permitAll()  // Public endpoints
               .anyRequest().authenticated()
             )
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)

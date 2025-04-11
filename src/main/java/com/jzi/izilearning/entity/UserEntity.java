@@ -23,6 +23,13 @@ public class UserEntity {
   private String email;
   private String password;
 
-  @ManyToMany(targetEntity = RoleEntity.class, fetch = FetchType.EAGER)
+  @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @JoinTable(
+          name = "users_roles",
+          joinColumns = @JoinColumn(name = "user_entity_id"),
+          inverseJoinColumns = @JoinColumn(name = "roles_id")
+  )
   private Set<RoleEntity> roles;
+  @Column(name = "avatar_url")
+  private String avatarUrl;
 }

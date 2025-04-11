@@ -25,4 +25,14 @@ public class UserController {
     }
     return new ResponseEntity<>(userService.getUserByEmail(userDetails.getUsername()), HttpStatus.OK);
   }
+
+  @PutMapping("")
+  public ResponseEntity<UserDto> updateUser(@AuthenticationPrincipal UserDetails userDetails,
+                                            @RequestBody UserDto userDto) {
+    if (userDetails == null) {
+      return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
+    UserDto updatedUser = userService.updateUser(userDetails.getUsername(), userDto);
+    return ResponseEntity.ok(updatedUser);
+  }
 }

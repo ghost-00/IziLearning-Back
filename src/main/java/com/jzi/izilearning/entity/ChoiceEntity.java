@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity(name="choices")
 @Getter
 @Setter
@@ -16,4 +18,7 @@ public class ChoiceEntity {
   private long id;
   private String text;
   private Boolean isAnswer;
+
+  @ManyToMany(mappedBy = "choices")
+  private List<QuestionEntity> questions;
 }

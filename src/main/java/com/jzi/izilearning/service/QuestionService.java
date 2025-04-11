@@ -33,6 +33,6 @@ public class QuestionService {
   public QuestionDto create(QuestionDto dto) {
     QuestionEntity entity = QuizMapper.INSTANCE.fromDto(dto);
     repository.save(entity);
-    return dto;
+    return QuizMapper.INSTANCE.toDto(entity);
   }
 }
